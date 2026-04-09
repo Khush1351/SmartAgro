@@ -1,0 +1,191 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+<li><a href="index.html">Home</a></li>
+<li><a href="CropRecommendation.html">Crop</a></li>
+<li><a href="FertilizerRecommendation.html">Fertilizer</a></li>
+<li><a href="PesticideRecommendation.html">Pesticide</a></li>
+<li><a href="DiseaseHome.html" class="active">Disease</a></li>
+{% endblock %}
+
+{% block body %}
+
+<div style="background-color: #282726; padding: 30px 0 24px 0; text-align: center; border-bottom: 3px solid #c79c60;">
+  <h2 style="color: #c79c60; font-family: 'Damion', cursive; font-size: 52px; margin: 0;">
+    🍀 Detection Tool 🍀
+  </h2>
+  <p style="color: #949494; font-size: 16px; margin-top: 10px;">
+    This Tool Will Help You To Detect Disease By Analyzing The Plant Image
+  </p>
+</div>
+
+<div class="light-gray-bg" style="padding: 40px 0 60px 0;">
+  <div class="container">
+
+    <div class="row" style="align-items: stretch;">
+
+      <div class="col-md-4" style="margin-bottom: 24px; display: flex;">
+        <div style="background-color: #302f2f; border-radius: 14px; padding: 32px 28px;
+                    width: 100%; border-top: 3px solid #c79c60;">
+          <h4 style="color: #c79c60; font-family: 'Damion', cursive; font-size: 28px; margin-bottom: 16px;">
+            Why is it necessary to detect disease in plant?
+          </h4>
+          <p style="color: #cccccc; font-size: 14px; line-height: 1.9; margin: 0;">
+            Plant diseases affect the growth of their respective species. In addition, some research gaps are
+            identified from which to obtain greater transparency for detecting diseases in plants, even
+            before their symptoms appear clearly. Diagnosis is one of the most important aspects of a plant
+            pathologist's training. Without proper identification of the disease and the disease-causing agent,
+            disease control measures can be a waste of time and money and can lead to further plant losses.
+            Proper disease diagnosis is necessary.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4" style="margin-bottom: 24px; display: flex;">
+        <div style="background-color: #302f2f; border-radius: 14px; padding: 62px 28px;
+                    width: 100%; text-align: center; border-top: 3px solid #c79c60;">
+
+          <img src="https://www.freeiconspng.com/uploads/tropical-plant-pictures-png-35.png"
+               height="240" width="180" alt="Plant"
+               class="d-block mx-auto mb-4"
+               style="object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));">
+
+          <form action="/disease-predict" method="POST" enctype="multipart/form-data">
+
+            <div style="display: flex; align-items: center; justify-content: center;
+                        gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+              <input type="file" id="actual-btn" name="image" style="display: none;" />
+              <label for="actual-btn"
+                     style="background-color: #c79c60; color: black; font-weight: bold;
+                            padding: 10px 22px; border-radius: 8px; cursor: pointer;
+                            font-size: 14px; margin: 0; white-space: nowrap;">
+                Choose File
+              </label>
+              <span id="file-chosen" style="color: #949494; font-size: 14px;">
+                No file chosen
+              </span>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+              <label id="camera-btn"
+                     style="background: transparent; border: 1px solid #c79c60; color: #c79c60;
+                            font-weight: bold; padding: 8px 20px; border-radius: 8px;
+                            cursor: pointer; font-size: 13px; display: inline-block;">
+                &#128247; Open Camera
+              </label>
+            </div>
+
+            <div id="camera-container" style="display: none; margin-bottom: 16px;">
+              <video id="camera-feed" width="100%" height="200" autoplay
+                     style="border-radius: 8px; border: 1px solid #c79c60;"></video>
+              <br>
+              <button type="button" id="capture-btn"
+                      style="margin-top: 10px; background-color: #c79c60; color: black;
+                             font-weight: bold; border: none; padding: 8px 20px;
+                             border-radius: 8px; cursor: pointer; font-size: 13px;">
+                Capture Photo
+              </button>
+            </div>
+
+            <img id="preview" src="#" alt="Preview"
+                 style="display: none; max-width: 100%; border-radius: 8px;
+                        border: 1px solid #c79c60; margin-bottom: 16px;">
+
+            <p style="color: #666; font-size: 13px; margin-bottom: 20px; font-style: italic;">
+              Simply upload your plant's leaf image and then see the magic of AI.
+            </p>
+
+            <center>
+              <button type="submit"
+                      style="color: #c79c60; font-weight: bold; background-color: black;
+                             width: 160px; height: 46px; border-radius: 12px;
+                             font-size: 16px; border: 1px solid #c79c60; cursor: pointer;">
+                Submit
+              </button>
+            </center>
+
+          </form>
+        </div>
+      </div>
+
+      <div class="col-md-4" style="margin-bottom: 24px; display: flex;">
+        <div style="background-color: #302f2f; border-radius: 14px; padding: 43px 28px;
+                    width: 100%; border-top: 3px solid #c79c60;
+                    display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h4 style="color: #c79c60; font-family: 'Damion', cursive; font-size: 28px; margin-bottom: 16px;">
+              Prevent Plant Disease follow below steps:
+            </h4>
+            <ol style="color: #cccccc; font-size: 14px; line-height: 2.1; padding-left: 20px; margin: 0 0 24px 0;">
+              <li>Follow Good Sanitation Practices.</li>
+              <li>Fertilize to Keep Your Plants Healthy.</li>
+              <li>Inspect Plants for Diseases Before You Bring Them Home.</li>
+              <li>Allow the Soil to Warm Before Planting.</li>
+              <li>Ensure a Healthy Vegetable Garden By Rotating Crops.</li>
+              <li>Provide Good Air Circulation.</li>
+              <li>Remove Diseased Stems and Foliage.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  const actualBtn = document.getElementById('actual-btn');
+  const fileChosen = document.getElementById('file-chosen');
+
+  actualBtn.addEventListener('change', function () {
+    fileChosen.textContent = this.files[0] ? this.files[0].name : 'No file chosen';
+    if (this.files && this.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const preview = document.getElementById('preview');
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+      };
+      reader.readAsDataURL(this.files[0]);
+    }
+  });
+
+  let capturedFile = null;
+
+  document.getElementById('camera-btn').addEventListener('click', function () {
+    document.getElementById('camera-container').style.display = 'block';
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(function (stream) {
+        document.getElementById('camera-feed').srcObject = stream;
+      })
+      .catch(function (error) {
+        console.log('Error accessing the camera: ', error);
+      });
+  });
+
+  document.getElementById('capture-btn').addEventListener('click', function () {
+    const cameraFeed = document.getElementById('camera-feed');
+    const canvas     = document.createElement('canvas');
+    canvas.width     = cameraFeed.videoWidth;
+    canvas.height    = cameraFeed.videoHeight;
+    canvas.getContext('2d').drawImage(cameraFeed, 0, 0, canvas.width, canvas.height);
+
+    const dataUrl  = canvas.toDataURL('image/jpeg');
+    const byteStr  = atob(dataUrl.split(',')[1]);
+    const arr      = new Uint8Array(byteStr.length);
+    for (let i = 0; i < byteStr.length; i++) arr[i] = byteStr.charCodeAt(i);
+
+    capturedFile = new File([arr], 'camera_image.jpg', { type: 'image/jpeg' });
+    const dt     = new DataTransfer();
+    dt.items.add(capturedFile);
+    document.getElementById('actual-btn').files = dt.files;
+
+    fileChosen.textContent        = capturedFile.name;
+    const preview                 = document.getElementById('preview');
+    preview.src                   = dataUrl;
+    preview.style.display         = 'block';
+    document.getElementById('camera-container').style.display = 'none';
+  });
+</script>
+
+{% endblock %}

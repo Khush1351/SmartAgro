@@ -1,0 +1,188 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+<li><a href="index.html">Home</a></li>
+<li><a href="CropRecommendation.html">Crop</a></li>
+<li><a href="FertilizerRecommendation.html">Fertilizer</a></li>
+<li><a href="PesticideRecommendation.html">Pesticide</a></li>
+<li><a href="DiseaseHome.html" class="active">Disease</a></li>
+{% endblock %}
+
+{% block body %}
+
+<!-- Page Header -->
+<div style="background-color: #282726; padding: 36px 0 28px 0; text-align: center; border-bottom: 3px solid #c79c60;">
+  <h2 style="color: #c79c60; font-family: 'Damion', cursive; font-size: 52px; margin: 0;">
+    Plant Disease Detection
+  </h2>
+  <p style="color: #949494; font-size: 16px; margin-top: 10px;">
+    This AI Tool will help detect diseases with the help of leaf images from the following fruits &amp; vegetables.
+  </p>
+  <div style="margin-top: 20px;">
+    <a href="/DiseaseDetection.html">
+      <button style="color: black;background-color: #c79c60;
+                     padding: 12px 36px; border-radius: 30px; 
+                     border: none; cursor: pointer;">
+        Detection Tool &rarr;
+      </button>
+    </a>
+  </div>
+</div>
+
+<div class="light-gray-bg" style="padding: 40px 0 60px 0;">
+  <div class="container">
+
+    <div style="text-align: center; margin-bottom: 32px;">
+      <h3 style="color: #302f2f; font-size: 30px; margin: 0;">Supported Plants</h3>
+      <div class="tm-hr-container"><hr class="tm-hr"></div>
+    </div>
+
+    <div class="row" style="margin-bottom: 24px;">
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+        <div style="background-color: #302f2f; border-radius: 12px; overflow: hidden;
+                    border-top: 3px solid #c79c60; text-align: center; padding-bottom: 14px;">
+          <img src="https://post.healthline.com/wp-content/uploads/2020/09/Do_Apples_Affect_Diabetes_and_Blood_Sugar_Levels-732x549-thumbnail-1-732x549.jpg"
+               width="100%" height="200" style="object-fit: cover;">
+          <p style="color: #c79c60; margin: 10px 0 0 0;">Apple</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+        <div style="background-color: #302f2f; border-radius: 12px; overflow: hidden;
+                    border-top: 3px solid #c79c60; text-align: center; padding-bottom: 14px;">
+          <img src="https://www.supermarketperimeter.com/ext/resources/0430-blueberries.png?t=1588260305&width=1080"
+               width="100%" height="200" style="object-fit: cover;">
+          <p style="color: #c79c60; margin: 10px 0 0 0;">Blueberry</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+        <div style="background-color: #302f2f; border-radius: 12px; overflow: hidden;
+                    border-top: 3px solid #c79c60; text-align: center; padding-bottom: 14px;">
+          <img src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/slideshows/health_benefits_of_cherries_slideshow/1800x1200_health_benefits_of_cherries_slideshow.jpg"
+               width="100%" height="200" style="object-fit: cover;">
+          <p style="color: #c79c60; margin: 10px 0 0 0;">Cherry</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+        <div style="background-color: #302f2f; border-radius: 12px; overflow: hidden;
+                    border-top: 3px solid #c79c60; text-align: center; padding-bottom: 14px;">
+          <img src="https://freepngimg.com/thumb/corn/38-corn-png-image.png"
+               width="100%" height="200" style="background-color: white; object-fit: cover;">
+          <p style="color: #c79c60; margin: 10px 0 0 0;">Corn</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 24px;">
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+        <div style="background-color: #302f2f; border-radius: 12px; overflow: hidden;
+                    border-top: 3px solid #c79c60; text-align: center; padding-bottom: 14px;">
+          <img src="https://i.ndtvimg.com/i/2015-09/grapes_625x350_61443376353.jpg"
+               width="100%" height="200" style="object-fit: cover;">
+          <p style="color: #c79c60; margin: 10px 0 0 0;">Grape</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+        <div style="background-color: #302f2f; border-radius: 12px; overflow: hidden;
+                    border-top: 3px solid #c79c60; text-align: center; padding-bottom: 14px;">
+          <img src="https://cdn.pixabay.com/photo/2023/05/07/01/11/orange-7975373_1280.jpg"
+               width="100%" height="200" style="object-fit: cover;">
+          <p style="color: #c79c60; margin: 10px 0 0 0;">Orange</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+        <div style="background-color: #302f2f; border-radius: 12px; overflow: hidden;
+                    border-top: 3px solid #c79c60; text-align: center; padding-bottom: 14px;">
+          <img src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/the_health_benefits_of_peaches_slideshow/thinkstock_rf_peaches.jpg?resize=650px:*"
+               width="100%" height="200" style="object-fit: cover;">
+          <p style="color: #c79c60; margin: 10px 0 0 0;">Peach</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+        <div style="background-color: #302f2f; border-radius: 12px; overflow: hidden;
+                    border-top: 3px solid #c79c60; text-align: center; padding-bottom: 14px;">
+          <img src="https://img.freepik.com/premium-photo/closeup-view-green-bell-peppers_1325500-3428.jpg"
+               width="100%" height="200" style="object-fit: cover;">
+          <p style="color: #c79c60; margin: 10px 0 0 0;">Pepper Bell</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row" style="margin-bottom: 24px;">
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+        <div style="background-color: #302f2f; border-radius: 12px; overflow: hidden;
+                    border-top: 3px solid #c79c60; text-align: center; padding-bottom: 14px;">
+          <img src="https://m.economictimes.com/thumb/height-450,width-600,imgsize-111140,msid-72862126/potato-getty.jpg"
+               width="100%" height="200" style="object-fit: cover;">
+          <p style="color: #c79c60; margin: 10px 0 0 0;">Potato</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+        <div style="background-color: #302f2f; border-radius: 12px; overflow: hidden;
+                    border-top: 3px solid #c79c60; text-align: center; padding-bottom: 14px;">
+          <img src="https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/326/326272/raspberries-with-ketones-in-a-bowl.jpg?w=1155&h=1541"
+               width="100%" height="200" style="object-fit: cover;">
+          <p style="color: #c79c60; margin: 10px 0 0 0;">Raspberry</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+        <div style="background-color: #302f2f; border-radius: 12px; overflow: hidden;
+                    border-top: 3px solid #c79c60; text-align: center; padding-bottom: 14px;">
+          <img src="https://m.economictimes.com/thumb/msid-66988154,width-1200,height-900,resizemode-4,imgsize-211276/soyabean-agencies.jpg"
+               width="100%" height="200" style="object-fit: cover;">
+          <p style="color: #c79c60; margin: 10px 0 0 0;">Soybean</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+        <div style="background-color: #302f2f; border-radius: 12px; overflow: hidden;
+                    border-top: 3px solid #c79c60; text-align: center; padding-bottom: 14px;">
+          <img src="https://post.healthline.com/wp-content/uploads/2020/08/squash-fruit-or-vegetable-732x549-thumbnail-732x549.jpg"
+               width="100%" height="200" style="object-fit: cover;">
+          <p style="color: #c79c60; margin: 10px 0 0 0;">Squash</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center" style="margin-bottom: 24px;">
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+        <div style="background-color: #302f2f; border-radius: 12px; overflow: hidden;
+                    border-top: 3px solid #c79c60; text-align: center; padding-bottom: 14px;">
+          <img src="https://images.indianexpress.com/2020/02/strawberry-1200.jpg"
+               width="100%" height="200" style="object-fit: cover;">
+          <p style="color: #c79c60; margin: 10px 0 0 0;">Strawberry</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6" style="margin-bottom: 20px;">
+        <div style="background-color: #302f2f; border-radius: 12px; overflow: hidden;
+                    border-top: 3px solid #c79c60; text-align: center; padding-bottom: 14px;">
+          <img src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/tomatoes-1296x728-feature.jpg"
+               width="100%" height="200" style="object-fit: cover;">
+          <p style="color: #c79c60; margin: 10px 0 0 0;">Tomato</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 16px;">
+      <a href="/DiseaseDetection.html">
+        <button style="color: black; background-color: #c79c60;
+                       padding: 14px 48px; border-radius: 30px; 
+                       border: none; cursor: pointer;">
+          Proceed to Detection Tool &rarr;
+        </button>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
